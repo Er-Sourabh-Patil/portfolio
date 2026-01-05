@@ -1,75 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link  rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sourabh Patil | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header>
-        <nav>
-            <div class="left">Portfolio</div>
-            <div class="right">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Projects</li>
-                    <li>contact</li>
-                </ul>
-            </div>
-        </nav>
 
-    </header>
-    <main>
-        <section class="firstsection">
-            <div class="leftsection">
-                 Hello, I am Sourabh...
-                 <div>and I am a Frontend Web Developer.</div>
-            </div>
-            <div class="rightsection">
-                 <img src="img.png" alt="">
-            </div>
-        </section>
-        <hr>
-        <section class="secondsection">
-           <h1> About </h1>           
-            <div class="box">
-            I belongs to Amashi (Kolhapur). I am currently pursuing second year of engineering from Government College of Engineering, Ratnagiri.
-            I am currently working as a Frontend Web developer intern in Codsoft company. My hobbies are Travelling, Programming. And also i have
-            completed c Programming, python Progarmming cources.
-           </div>
-        </section>
-        <hr>
-        <section class="thirdsection">
-            <h1>Projects</h1> 
-            <div class="box1">
-                <p class="cal">Calculator</p>
-                <a href="https://github.com/sourabh9597/codesoft/blob/main/Calculator%20-%20Shortcut.lnk" class="cli">Click Here</a>
-            </div>
-        </section>
-        <hr>
-        <section class="fourthsection">
-            <h1>Contact</h1>
-            <div class="box2">
-                <h1>Reach out to me !</h1>
-            <h2>Sourabh Patil</h2>
-            <p>CSE(AI & DS) Engineer || Intern Frontend Web Developer</p>
-            <p>Govt. College of Engineering, Ratnagiri</p>
-            <p>Mobile :- +919322549597</p>
-            <p>Email :- sourabhpatil9597@gmail.com</p><br>
-            </div>
-        </section>
-        <hr>
-        <footer class="end">
-            <p>Copyright 2012 Sourabh Patil. All rights reserved</p>
-        </footer>
-    </main>
+    <!-- Navbar -->
+    <nav>
+        <h2 class="logo">Sourabh<span>.</span></h2>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Hi, I'm <span>Sourabh Patil</span></h1>
+        <p>AI & Data Science Engineer | ML & Web Developer</p>
+        <button onclick="scrollToSection('contact')">Hire Me</button>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a B.Tech student in Artificial Intelligence & Data Science with strong
+            interest in Machine Learning, Deep Learning, and Web-based AI applications.
+        </p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill">Python</div>
+            <div class="skill">Machine Learning</div>
+            <div class="skill">Deep Learning</div>
+            <div class="skill">Flask</div>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3>Sentiment Analysis (LSTM)</h3>
+            <p>Analyzes social media posts using deep learning.</p>
+        </div>
+        <div class="project-card">
+            <h3>Spam Email Classifier</h3>
+            <p>ML-based spam detection using Naive Bayes.</p>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: sourabh@example.com</p>
+        <p>LinkedIn: linkedin.com/in/sourabhpatil</p>
+    </section>
+
+    <footer>
+        <p>© 2026 Sourabh Patil | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -2,78 +2,180 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Sourabh Patil | AI & Data Science Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sourabh Patil | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav>
-        <h2 class="logo">Sourabh<span>.</span></h2>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<!-- NAVBAR -->
+<nav>
+    <h2 class="logo">Sourabh<span>.</span></h2>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#internships">Internships</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h1>Hi, I'm <span>Sourabh Patil</span></h1>
-        <p>AI & Data Science Engineer | ML & Web Developer</p>
-        <button onclick="scrollToSection('contact')">Hire Me</button>
-    </section>
+<!-- HERO -->
+<section id="home" class="hero">
+    <h1>Sourabh Suresh Patil</h1>
+    <h3>AI & Data Science Engineer</h3>
+    <p>
+        AI & Data Science Engineering student with strong hands-on experience in
+        Machine Learning, Deep Learning, and Full-Stack Web Applications.
+    </p>
+    <button onclick="scrollToSection('contact')">Contact Me</button>
+</section>
 
-    <!-- About -->
-    <section id="about">
-        <h2>About Me</h2>
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        I am a B.Tech student in Artificial Intelligence & Data Science at
+        Government College of Engineering, Ratnagiri.
+        I have practical experience in designing machine learning models,
+        LSTM-based deep learning projects, and smart web-based applications.
+        I enjoy solving real-world problems using AI and Data Science.
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2>Technical Skills</h2>
+
+    <h3>Programming Languages</h3>
+    <div class="skills">
+        <span>Python</span><span>Java</span><span>C</span><span>R</span>
+        <span>HTML</span><span>CSS</span>
+    </div>
+
+    <h3>Frameworks & Libraries</h3>
+    <div class="skills">
+        <span>Flask</span><span>Streamlit</span><span>Pandas</span>
+        <span>NumPy</span><span>Matplotlib</span><span>Seaborn</span>
+        <span>Scikit-learn</span><span>NLTK</span>
+        <span>TensorFlow</span><span>PyTorch</span>
+    </div>
+
+    <h3>Machine Learning</h3>
+    <div class="skills">
+        <span>Supervised Learning</span>
+        <span>Unsupervised Learning</span>
+        <span>Feature Engineering</span>
+        <span>Model Training</span>
+        <span>Model Evaluation</span>
+    </div>
+
+    <h3>Tools & Platforms</h3>
+    <div class="skills">
+        <span>PyCharm</span><span>VS Code</span><span>Jupyter Notebook</span>
+        <span>Git</span><span>GitHub</span><span>WordPress</span>
+        <span>R Studio</span>
+    </div>
+
+    <h3>Database & Visualization</h3>
+    <div class="skills">
+        <span>MySQL</span><span>Power BI</span><span>Advanced Excel</span>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="card">
+        <h3>Sentiment Analysis of Social Media Posts (LSTM)</h3>
         <p>
-            I am a B.Tech student in Artificial Intelligence & Data Science with strong
-            interest in Machine Learning, Deep Learning, and Web-based AI applications.
+            Built an LSTM-based deep learning model to classify sentiment
+            (positive, negative, neutral) using Twitter, Facebook, and Google Reviews.
+            Integrated with a Flask web app featuring an animated sentiment gauge.
         </p>
-    </section>
+        <p class="tech">Python, TensorFlow, Keras, Flask, NLTK, Scikit-learn</p>
+    </div>
 
-    <!-- Skills -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills-container">
-            <div class="skill">Python</div>
-            <div class="skill">Machine Learning</div>
-            <div class="skill">Deep Learning</div>
-            <div class="skill">Flask</div>
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">JavaScript</div>
-        </div>
-    </section>
+    <div class="card">
+        <h3>E-Voting Platform</h3>
+        <p>
+            Developed a secure electronic voting system with authentication,
+            admin management, and database integrity to ensure transparency
+            and security in elections.
+        </p>
+        <p class="tech">Java, JSP, JDBC, MySQL, HTML, CSS, JavaScript</p>
+    </div>
 
-    <!-- Projects -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-card">
-            <h3>Sentiment Analysis (LSTM)</h3>
-            <p>Analyzes social media posts using deep learning.</p>
-        </div>
-        <div class="project-card">
-            <h3>Spam Email Classifier</h3>
-            <p>ML-based spam detection using Naive Bayes.</p>
-        </div>
-    </section>
+    <div class="card">
+        <h3>Customer Ledger Management System</h3>
+        <p>
+            Designed and deployed a digital ledger system for a retail cloth store
+            using WordPress to streamline manual credit management.
+        </p>
+        <p class="tech">WordPress, PHP, MySQL, JavaScript</p>
+    </div>
+</section>
 
-    <!-- Contact -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: sourabh@example.com</p>
-        <p>LinkedIn: linkedin.com/in/sourabhpatil</p>
-    </section>
+<!-- INTERNSHIPS -->
+<section id="internships">
+    <h2>Internships</h2>
 
-    <footer>
-        <p>© 2026 Sourabh Patil | All Rights Reserved</p>
-    </footer>
+    <div class="card">
+        <h3>AI & Data Science Intern – DataPointer Technologies</h3>
+        <p>July – August 2025 (Remote)</p>
+        <p>
+            Worked on ML and data analysis projects including data preprocessing,
+            model training, evaluation, sentiment analysis, and visualization.
+        </p>
+    </div>
 
-    <script src="script.js"></script>
+    <div class="card">
+        <h3>Full Stack Development Intern – Lcube Creation</h3>
+        <p>July – August 2024 (On-Site)</p>
+        <p>
+            Built Java-based full-stack applications and implemented a secure
+            E-Voting platform using JSP, JDBC, and MySQL.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Web Development Intern – Codsoft Technologies</h3>
+        <p>October – November 2023 (Remote)</p>
+        <p>
+            Designed responsive web pages and improved UI/UX using HTML,
+            CSS, and JavaScript.
+        </p>
+    </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+    <h2>Certifications & Achievements</h2>
+
+    <ul>
+        <li>100 Days Python Bootcamp – Udemy</li>
+        <li>Introduction to Machine Learning – Udemy</li>
+        <li>Machine Learning for Engineering & Science Applications – IIT Madras (NPTEL)</li>
+        <li>Second Prize – TechIgnite Project Exhibition (GDG)</li>
+        <li>Published Research Paper on Secure E-Voting Platform</li>
+    </ul>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: sourabhpatil9597@gmail.com</p>
+    <p>Mobile: +91 9322549597</p>
+    <p>LinkedIn: Sourabh Patil</p>
+</section>
+
+<footer>
+    <p>© 2026 Sourabh Patil | AI & Data Science Portfolio</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,179 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Sourabh Patil | AI & Data Science Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sourabh Patil | AI & Data Science Engineer</title>
+  <meta name="description" content="AI & Data Science Engineering student portfolio of Sourabh Patil" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<nav>
-    <h2 class="logo">Sourabh<span>.</span></h2>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#internships">Internships</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <div class="logo">Sourabh Patil</div>
+  <nav id="nav-menu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</header>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section id="home" class="hero">
-    <h1>Sourabh Suresh Patil</h1>
-    <h3>AI & Data Science Engineer</h3>
+  <h1>Sourabh Suresh Patil</h1>
+  <h2><span id="typing"></span></h2>
+  <div class="hero-buttons">
+    <a href="Resume- Sourabh Patil.pdf" download class="btn">Download Resume</a>
+    <a href="https://github.com/Er-Sourabh-Patil" target="_blank" class="btn outline">GitHub</a>
+    <a href="https://www.linkedin.com/in/sourabh-patil-5b64b5234/" target="_blank" class="btn outline">LinkedIn</a>
+    <a href="mailto:sourabhpatil9597@gmail.com" class="btn outline">Email</a>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="section">
+  <h2>About Me</h2>
+  <p>
+    AI & Data Science Engineering student with practical knowledge in designing machine learning models, deep learning
+    projects, and smart web-based applications. Proficient in Python, Java, and advanced frameworks like Flask, Streamlit,
+    and Scikit-learn for end-to-end model design and deployment. Experienced in the development of LSTM-based sentiment
+    analysis systems, and full-stack web applications that incorporate front-end as well as back-end technologies. Strong
+    data preprocessing, feature engineering, and model evaluation skills in predictive analytics. Enthusiastic about
+    applying AI and Data Science to real-world issues and adding value to innovative projects in fast-paced environments.
+  </p>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="section">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Programming Languages</h3>
+      <p>Python, Java, C, R, HTML, CSS</p>
+    </div>
+    <div class="card">
+      <h3>Frameworks / Libraries</h3>
+      <p>Flask, Streamlit, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, NLTK, TensorFlow, PyTorch</p>
+    </div>
+    <div class="card">
+      <h3>Machine Learning</h3>
+      <p>Supervised & Unsupervised Learning, Model Training, Evaluation, Feature Engineering</p>
+    </div>
+    <div class="card">
+      <h3>Tools</h3>
+      <p>PyCharm, VS Code, R Studio, Jupyter Notebook, Git, GitHub, WordPress</p>
+    </div>
+    <div class="card">
+      <h3>Database</h3>
+      <p>MySQL</p>
+    </div>
+    <div class="card">
+      <h3>Data Visualization</h3>
+      <p>Power BI, Advance Excel</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="section">
+  <h2>Projects</h2>
+
+  <div class="card">
+    <h3>Sentiment Analysis of Social Media Posts (LSTM)</h3>
     <p>
-        AI & Data Science Engineering student with strong hands-on experience in
-        Machine Learning, Deep Learning, and Full-Stack Web Applications.
+      Developed an LSTM-based deep learning model using social media data (Twitter, Facebook, Google Reviews) to classify
+      sentiment into positive, negative, or neutral. Incorporated the model into a Flask web application with a sentiment
+      gauge for animated real-time visualization.
     </p>
-    <button onclick="scrollToSection('contact')">Contact Me</button>
-</section>
+    <p><strong>Tools & Technologies:</strong> Python, TensorFlow, Keras, Flask, Pandas, NumPy, Scikit-learn, NLTK, Matplotlib</p>
+  </div>
 
-<!-- ABOUT -->
-<section id="about">
-    <h2>About Me</h2>
+  <div class="card">
+    <h3>E-Voting Platform</h3>
     <p>
-        I am a B.Tech student in Artificial Intelligence & Data Science at
-        Government College of Engineering, Ratnagiri.
-        I have practical experience in designing machine learning models,
-        LSTM-based deep learning projects, and smart web-based applications.
-        I enjoy solving real-world problems using AI and Data Science.
+      Developed a secure and user-friendly electronic voting system using Java for efficient and transparent election
+      management. The system allows administrators to manage candidates and users to vote digitally with authentication
+      features, ensuring data security and integrity.
     </p>
+    <p><strong>Tools & Technologies:</strong> Java, JSP, JDBC, MySQL, HTML, CSS, JavaScript</p>
+      <br>
+  </div>
+
+  <div class="card">
+    <h3>Customer Ledger Management System</h3>
+    <p>
+      Developed and deployed a custom Customer Ledger Management System for a retail cloth store, leveraging the
+      flexibility of the WordPress platform to digitize and streamline manual credit management processes.
+    </p>
+    <p><strong>Tools & Technologies:</strong> WordPress, Custom PHP Plugin, MySQL, PHP, JavaScript</p>
+  </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-    <h2>Technical Skills</h2>
+<!-- ================= EDUCATION ================= -->
+<section id="education" class="section">
+  <h2>Education</h2>
+  <div class="card">
+    <h3>B. Tech (Artificial Intelligence & Data Science)</h3>
+    <p>Government College of Engineering, Ratnagiri</p>
 
-    <h3>Programming Languages</h3>
-    <div class="skills">
-        <span>Python</span><span>Java</span><span>C</span><span>R</span>
-        <span>HTML</span><span>CSS</span>
-    </div>
-
-    <h3>Frameworks & Libraries</h3>
-    <div class="skills">
-        <span>Flask</span><span>Streamlit</span><span>Pandas</span>
-        <span>NumPy</span><span>Matplotlib</span><span>Seaborn</span>
-        <span>Scikit-learn</span><span>NLTK</span>
-        <span>TensorFlow</span><span>PyTorch</span>
-    </div>
-
-    <h3>Machine Learning</h3>
-    <div class="skills">
-        <span>Supervised Learning</span>
-        <span>Unsupervised Learning</span>
-        <span>Feature Engineering</span>
-        <span>Model Training</span>
-        <span>Model Evaluation</span>
-    </div>
-
-    <h3>Tools & Platforms</h3>
-    <div class="skills">
-        <span>PyCharm</span><span>VS Code</span><span>Jupyter Notebook</span>
-        <span>Git</span><span>GitHub</span><span>WordPress</span>
-        <span>R Studio</span>
-    </div>
-
-    <h3>Database & Visualization</h3>
-    <div class="skills">
-        <span>MySQL</span><span>Power BI</span><span>Advanced Excel</span>
-    </div>
+  </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-    <h2>Projects</h2>
+<!-- ================= CERTIFICATIONS ================= -->
+<section id="certifications" class="section">
+  <h2>Certifications & Achievements</h2>
 
-    <div class="card">
-        <h3>Sentiment Analysis of Social Media Posts (LSTM)</h3>
-        <p>
-            Built an LSTM-based deep learning model to classify sentiment
-            (positive, negative, neutral) using Twitter, Facebook, and Google Reviews.
-            Integrated with a Flask web app featuring an animated sentiment gauge.
-        </p>
-        <p class="tech">Python, TensorFlow, Keras, Flask, NLTK, Scikit-learn</p>
-    </div>
-
-    <div class="card">
-        <h3>E-Voting Platform</h3>
-        <p>
-            Developed a secure electronic voting system with authentication,
-            admin management, and database integrity to ensure transparency
-            and security in elections.
-        </p>
-        <p class="tech">Java, JSP, JDBC, MySQL, HTML, CSS, JavaScript</p>
-    </div>
-
-    <div class="card">
-        <h3>Customer Ledger Management System</h3>
-        <p>
-            Designed and deployed a digital ledger system for a retail cloth store
-            using WordPress to streamline manual credit management.
-        </p>
-        <p class="tech">WordPress, PHP, MySQL, JavaScript</p>
-    </div>
+  <span class="cert-span">100 days Python Bootcamp (Udemy)</span>
+  <span class="cert-span">Introduction to Machine Learning (Udemy)</span>
+  <span class="cert-span">Machine Learning for Engineering and science applications By IIT Madras (swayam.gov)</span>
+  <span class="cert-span">Second Prize Winner in Project Exhibition at TechIgnite by Google Developers Group LSPGCOER</span>
+  <span class="cert-span">Published Research Paper on Enhancing Electoral Integrity: Implementation of a Secure E-Voting Platform</span>
 </section>
 
-<!-- INTERNSHIPS -->
-<section id="internships">
-    <h2>Internships</h2>
 
-    <div class="card">
-        <h3>AI & Data Science Intern – DataPointer Technologies</h3>
-        <p>July – August 2025 (Remote)</p>
-        <p>
-            Worked on ML and data analysis projects including data preprocessing,
-            model training, evaluation, sentiment analysis, and visualization.
-        </p>
-    </div>
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience" class="section">
+  <h2>Experience & Internships</h2>
 
-    <div class="card">
-        <h3>Full Stack Development Intern – Lcube Creation</h3>
-        <p>July – August 2024 (On-Site)</p>
-        <p>
-            Built Java-based full-stack applications and implemented a secure
-            E-Voting platform using JSP, JDBC, and MySQL.
-        </p>
-    </div>
+  <div class="card">
+    <h3>AI & Data Science Intern – DataPointer Technologies</h3>
+    <p><strong>Duration:</strong> July – August 2025 (Remote)</p>
+    <p>
+      Learned practical implementation of machine learning and data analysis projects involving data preprocessing,
+      model training, and evaluation using Python, Pandas, NumPy, Scikit-learn, and Matplotlib. Enhanced understanding
+      of supervised learning, sentiment analysis, and data visualization techniques for real-world applications.
+    </p>
+    <p><strong>Key Skills:</strong> Python, Machine Learning, Pandas, NumPy, Scikit-learn, Data Visualization</p>
+  </div>
 
-    <div class="card">
-        <h3>Web Development Intern – Codsoft Technologies</h3>
-        <p>October – November 2023 (Remote)</p>
-        <p>
-            Designed responsive web pages and improved UI/UX using HTML,
-            CSS, and JavaScript.
-        </p>
-    </div>
+  <div class="card">
+    <h3>Full Stack Development Intern – Lcube Creation</h3>
+    <p><strong>Duration:</strong> July – August 2024 (On Site)</p>
+    <p>
+      Learned Java, JSP, JDBC, and MySQL for building dynamic full-stack web applications. Gained hands-on experience
+      in developing a Secure E-Voting Platform with focus on user authentication, database connectivity, and backend
+      integration. Strengthened understanding of web architecture, form validation, and secure data handling in
+      Java-based environments.
+    </p>
+    <p><strong>Key Skills:</strong> Java, JSP, JDBC, MySQL, Full-Stack Development</p>
+  </div>
+
+  <div class="card">
+    <h3>Web Development Intern – Codsoft Technologies</h3>
+    <p><strong>Duration:</strong> October – November 2023 (Remote)</p>
+    <p>
+      Acquired practical knowledge in designing and developing interactive and responsive web pages using HTML, CSS,
+      and JavaScript. Worked on front-end development, UI/UX enhancement, and integration of dynamic web components
+      with focus on creating user-centric and responsive web interfaces.
+    </p>
+    <p><strong>Key Skills:</strong> HTML, CSS, JavaScript, Web Design</p>
+  </div>
 </section>
 
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-    <h2>Certifications & Achievements</h2>
 
-    <ul>
-        <li>100 Days Python Bootcamp – Udemy</li>
-        <li>Introduction to Machine Learning – Udemy</li>
-        <li>Machine Learning for Engineering & Science Applications – IIT Madras (NPTEL)</li>
-        <li>Second Prize – TechIgnite Project Exhibition (GDG)</li>
-        <li>Published Research Paper on Secure E-Voting Platform</li>
-    </ul>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Email: sourabhpatil9597@gmail.com</p>
-    <p>Mobile: +91 9322549597</p>
-    <p>LinkedIn: Sourabh Patil</p>
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:sourabhpatil9597@gmail.com">sourabhpatil9597@gmail.com</a></p>
+  <p>Mobile: 9322549597</p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/sourabh-patil-5b64b5234/" target="_blank">Sourabh Patil</a></p>
 </section>
 
 <footer>
-    <p>© 2026 Sourabh Patil | AI & Data Science Portfolio</p>
+  <p>© 2026 Sourabh Patil. All rights reserved.</p>
 </footer>
 
 <script src="script.js"></script>

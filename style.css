@@ -1,101 +1,196 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
 
 body {
-    background: #0a192f;
-    color: #ccd6f6;
-    line-height: 1.6;
+  background: #0b1220; /* dark blue */
+  color: #e6eaf2;
+  line-height: 1.6;
 }
 
 /* NAVBAR */
-nav {
-    background: #020c1b;
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-
-nav a {
-    color: #64ffda;
-    text-decoration: none;
+.navbar {
+  position: sticky;
+  top: 0;
+  background: #0f172a;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.4);
+  z-index: 1000;
 }
 
 .logo {
-    color: #64ffda;
+  font-weight: 600;
+  color: #e6eaf2;
 }
-.logo span {
-    color: #fff;
+
+.navbar a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #cbd5f5;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #38bdf8;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #e6eaf2;
+  margin: 5px 0;
 }
 
 /* HERO */
 .hero {
-    height: 90vh;
-    text-align: center;
-    padding: 120px 20px;
+  padding: 120px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #020617, #0f172a, #020617);
 }
 
 .hero h1 {
-    font-size: 42px;
-    color: #64ffda;
+  font-size: 2.8rem;
+  color: #f8fafc;
 }
 
-.hero button {
-    margin-top: 25px;
-    padding: 12px 30px;
-    background: #64ffda;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+.hero h2 {
+  margin: 15px 0;
+  font-weight: 400;
+  color: #38bdf8;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 12px 20px;
+  background: #38bdf8;
+  color: #020617;
+  text-decoration: none;
+  border-radius: 6px;
+  margin: 10px;
+  display: inline-block;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn.outline {
+  background: transparent;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
 }
 
 /* SECTIONS */
-section {
-    padding: 80px 100px;
+.section {
+  padding: 80px 10%;
 }
 
-h2 {
-    color: #64ffda;
-    margin-bottom: 20px;
-}
-
-/* SKILLS */
-.skills span {
-    background: #112240;
-    padding: 8px 16px;
-    border-radius: 20px;
-    margin: 6px;
-    display: inline-block;
+.section h2 {
+  margin-bottom: 30px;
+  text-align: center;
+  color: #f8fafc;
 }
 
 /* CARDS */
-.card {
-    background: #112240;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
-.tech {
-    color: #64ffda;
-    margin-top: 10px;
+.card {
+  background: #0f172a;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card h3 {
+  color: #38bdf8;
+  margin-bottom: 10px;
+}
+
+/* CERTIFICATION SPAN */
+.cert-span {
+  display: inline-block;
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin: 6px 6px 0 0;
+  font-size: 0.95rem;
+  color: #cbd5f5;
+}
+
+/* CONTACT */
+.contact {
+  text-align: center;
+}
+
+.contact a {
+  color: #38bdf8;
+  text-decoration: none;
 }
 
 /* FOOTER */
 footer {
-    background: #020c1b;
-    text-align: center;
+  padding: 20px;
+  text-align: center;
+  background: #020617;
+  color: #94a3b8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #0f172a;
     padding: 20px;
+    border-radius: 8px;
+  }
+
+  .navbar nav.active {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+/* Reduce vertical gap between project cards */
+#projects .card {
+  margin-bottom: 24px; /* small, clean gap */
+}
+
+/* Reduce spacing between Experience cards */
+#experience .card {
+  margin-bottom: 22px; /* small, balanced gap */
+}
+
+/* Remove extra space after last card */
+#experience .card:last-child {
+  margin-bottom: 0;
 }

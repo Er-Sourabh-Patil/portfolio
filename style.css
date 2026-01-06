@@ -194,3 +194,20 @@ footer {
 #experience .card:last-child {
   margin-bottom: 0;
 }
+
+/* Consistent spacing between project report cards */
+.section .card {
+  margin-bottom: 28px;   /* clean, readable gap */
+}
+
+/* Remove extra space after last card */
+.section .card:last-child {
+  margin-bottom: 0;
+}
+
+
+:root {
+  --primary: #2563eb;
+  --dark: #0f172a;
+  --light: #f8fafc;
+}

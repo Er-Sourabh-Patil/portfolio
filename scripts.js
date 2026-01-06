@@ -39,3 +39,4 @@ function eraseEffect() {
 }
 
 typeEffect();
+<script src="script.js" defer></script>

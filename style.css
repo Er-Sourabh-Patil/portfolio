@@ -86,7 +86,8 @@ body {
 }
 
 .btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+
 }
 
 .btn.outline {
@@ -211,3 +212,7 @@ footer {
   --dark: #0f172a;
   --light: #f8fafc;
 }
+
+
+
+

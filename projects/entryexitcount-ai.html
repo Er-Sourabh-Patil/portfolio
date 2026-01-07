@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Entry Exit Count AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Entry Exit Count AI – AI-based real-time people counting system using computer vision" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">Sourabh Patil</div>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../index.html#projects">Projects</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- PROJECT REPORT -->
+<section class="section">
+
+  <h2>Entry Exit Count AI</h2>
+
+  <!-- Overview -->
+  <div class="card">
+    <h3>Project Overview</h3>
+    <p>
+      Entry Exit Count AI is a real-time computer vision–based system designed to automatically
+      detect, track, and count people entering and exiting a monitored area using CCTV or video feeds.
+      The system eliminates manual counting by providing accurate IN and OUT counts through
+      intelligent video analytics.
+    </p>
+    <p>
+      The solution is suitable for public places such as malls, offices, institutions, and events
+      where crowd monitoring and occupancy tracking are essential for safety and operational efficiency.
+    </p>
+  </div>
+
+  <!-- Problem Statement -->
+  <div class="card">
+    <h3>Problem Statement</h3>
+    <p>
+      Traditional CCTV systems only record footage without providing actionable insights.
+      Manual people counting is time-consuming, error-prone, and not scalable in crowded environments.
+      Organizations require an automated solution to monitor entry and exit counts in real time.
+    </p>
+  </div>
+
+  <!-- Proposed Solution -->
+  <div class="card">
+    <h3>Proposed Solution</h3>
+    <p>
+      The system uses computer vision techniques to detect humans in video frames and track their movement
+      across consecutive frames. A virtual line is defined in the camera view, and whenever a person
+      crosses this line, the system determines the direction of movement and updates the entry or exit counter.
+    </p>
+    <p>
+      A Flask-based web interface displays live video streams along with real-time counters for monitoring.
+    </p>
+  </div>
+
+  <!-- Methodology -->
+  <div class="card">
+    <h3>Methodology</h3>
+    <ul>
+      <li>Capture live or recorded CCTV video feed</li>
+      <li>Detect people using computer vision techniques</li>
+      <li>Track individuals across frames</li>
+      <li>Apply line-crossing logic to determine movement direction</li>
+      <li>Update IN and OUT counters in real time</li>
+      <li>Display results on a web-based dashboard</li>
+    </ul>
+  </div>
+
+  <!-- Tools -->
+  <div class="card">
+    <h3>Tools & Technologies Used</h3>
+    <p>
+      <strong>Programming Language:</strong> Python<br />
+      <strong>Computer Vision:</strong> OpenCV<br />
+      <strong>Web Framework:</strong> Flask<br />
+      <strong>Frontend:</strong> HTML, CSS, JavaScript
+    </p>
+  </div>
+
+  <!-- Features -->
+  <div class="card">
+    <h3>Key Features</h3>
+    <ul>
+      <li>Real-time people detection and tracking</li>
+      <li>Accurate entry and exit counting using line-crossing algorithm</li>
+      <li>Live counter updates</li>
+      <li>Fullscreen CCTV monitoring mode</li>
+      <li>Sound alerts for entry and exit events</li>
+      <li>Optimized for low-latency performance</li>
+    </ul>
+  </div>
+
+  <!-- Applications -->
+  <div class="card">
+    <h3>Applications</h3>
+    <ul>
+      <li>Shopping malls and retail stores</li>
+      <li>Office buildings and corporate campuses</li>
+      <li>Educational institutions and libraries</li>
+      <li>Public events and exhibitions</li>
+      <li>Smart city surveillance systems</li>
+    </ul>
+  </div>
+
+  <!-- Conclusion -->
+  <div class="card">
+    <h3>Conclusion</h3>
+    <p>
+      Entry Exit Count AI demonstrates how computer vision can be effectively applied to
+      automate crowd monitoring and occupancy tracking. The project provides a scalable,
+      accurate, and real-time solution that enhances safety, security, and operational
+      decision-making in various public environments.
+    </p>
+  </div>
+
+  <a href="../index.html#projects" class="btn">← Back to Projects</a>
+
+</section>
+
+<footer>
+  <p>© 2026 Sourabh Patil. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

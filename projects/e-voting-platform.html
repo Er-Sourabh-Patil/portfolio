@@ -2,132 +2,441 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>E-Voting Platform</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="E-Voting Platform – Secure and transparent electronic voting system developed using Java and JSP" />
-  <link rel="stylesheet" href="../style.css" />
-</head>
 
+  <title>E-Voting Platform - Full Stack Project | Sourabh Patil Portfolio</title>
+
+  <meta name="description" content="E-Voting Platform – Secure electronic voting system using Java, JSP, JDBC, and MySQL ensuring transparent election management." />
+  <meta name="keywords" content="E-Voting, Java, JSP, JDBC, MySQL, Full Stack, Secure Voting System" />
+  <meta name="author" content="Sourabh Patil" />
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .project-detail {
+      min-height: 100vh;
+      padding: 6rem 2rem 3rem;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
+    }
+    .detail-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .back-link:hover {
+      gap: 1rem;
+      color: var(--secondary);
+    }
+    .project-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--light-text);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .project-badge-large {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .project-meta {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      color: var(--gray-text);
+      font-size: 0.95rem;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .project-showcase {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+      text-align: center;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .project-showcase-icon {
+      font-size: 4rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .section-content {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+    }
+    .section-content h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-content h3 {
+      color: var(--light-text);
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .section-content p {
+      color: var(--gray-text);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .section-content ul {
+      color: var(--gray-text);
+      padding-left: 1.5rem;
+      line-height: 2;
+    }
+    .section-content li {
+      margin-bottom: 0.5rem;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .feature-item {
+      background: rgba(99, 102, 241, 0.1);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 3px solid var(--primary);
+    }
+    .feature-item h4 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .feature-item p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .tech-item {
+      background: rgba(99, 102, 241, 0.2);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid var(--primary);
+    }
+    .project-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+      border-left: 4px solid var(--secondary);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .project-title {
+        font-size: 1.8rem;
+      }
+      .project-meta {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+      .project-buttons {
+        flex-direction: column;
+      }
+      .project-buttons .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 <header class="navbar">
-  <div class="logo">Sourabh Patil</div>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../index.html#projects">Projects</a>
-    <a href="../index.html#contact">Contact</a>
-  </nav>
+  <div class="nav-container">
+    <div class="logo">
+      <i class="fas fa-code"></i> Sourabh Patil
+    </div>
+    <nav id="nav-menu" class="nav-menu">
+      <a href="../index.html#home" class="nav-link">Home</a>
+      <a href="../index.html#about" class="nav-link">About</a>
+      <a href="../index.html#skills" class="nav-link">Skills</a>
+      <a href="../index.html#projects" class="nav-link">Projects</a>
+      <a href="../index.html#experience" class="nav-link">Experience</a>
+      <a href="../index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
 </header>
 
-<!-- PROJECT REPORT -->
-<section class="section">
+<!-- ================= PROJECT DETAIL ================= -->
+<section class="project-detail">
+  <div class="detail-container">
+    <a href="../index.html#projects" class="back-link">
+      <i class="fas fa-arrow-left"></i> Back to Projects
+    </a>
 
-  <h2>E-Voting Platform</h2>
+    <div class="project-title">
+      <i class="fas fa-ballot-check"></i>
+      E-Voting Platform
+      <span class="project-badge-large">Full Stack</span>
+    </div>
 
-  <!-- Overview -->
-  <div class="card">
-    <h3>Project Overview</h3>
-    <p>
-      The E-Voting Platform is a secure and user-friendly electronic voting system developed
-      to ensure efficient, transparent, and reliable election management. The platform enables
-      voters to cast their votes digitally while allowing administrators to manage candidates
-      and election data through a centralized system.
-    </p>
-    <p>
-      The project focuses on improving the integrity of the voting process by incorporating
-      authentication mechanisms and secure data handling practices.
-    </p>
+    <div class="project-meta">
+      <div class="meta-item">
+        <i class="fas fa-lock"></i>
+        <span>Secure Voting System</span>
+      </div>
+      <div class="meta-item">
+        <i class="fas fa-database"></i>
+        <span>Java & MySQL</span>
+      </div>
+      <div class="meta-item">
+        <i class="fas fa-github"></i>
+        <a href="https://github.com/Er-Sourabh-Patil/OnlineVotingSystem" target="_blank" style="color: var(--primary); text-decoration: none;">
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Project Showcase -->
+    <div class="project-showcase">
+      <div>
+        <div class="project-showcase-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <p style="color: var(--gray-text); margin: 0;">Secure & Transparent Electronic Voting System</p>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="section-content">
+      <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+      <p>
+        The E-Voting Platform is a secure and user-friendly electronic voting system developed to ensure 
+        efficient, transparent, and reliable election management. The platform enables voters to cast their 
+        votes digitally while allowing administrators to manage candidates and election data through a centralized system.
+      </p>
+      <p>
+        Built with Java backend and JSP frontend, the system incorporates authentication mechanisms and 
+        secure data handling practices to maintain the integrity of the voting process.
+      </p>
+
+      <div class="highlight-box">
+        <strong>Key Achievement:</strong> Developed a secure, transparent e-voting system with role-based access 
+        control, duplicate vote prevention, and real-time result generation capabilities.
+      </div>
+    </div>
+
+    <!-- Problem Statement -->
+    <div class="section-content">
+      <h2><i class="fas fa-exclamation-triangle"></i> Problem Statement</h2>
+      <p>
+        Traditional voting systems face multiple challenges:
+      </p>
+      <ul>
+        <li>Manual processes are time-consuming and resource-intensive</li>
+        <li>Paper-based voting is prone to human error and fraud</li>
+        <li>Delayed result generation due to manual counting</li>
+        <li>Logistical challenges in managing large-scale elections</li>
+        <li>Data integrity and security concerns</li>
+      </ul>
+    </div>
+
+    <!-- Solution -->
+    <div class="section-content">
+      <h2><i class="fas fa-lightbulb"></i> Solution Approach</h2>
+      <p>
+        Implemented a comprehensive e-voting solution with:
+      </p>
+      <ul>
+        <li><strong>Authentication:</strong> Voter login with secure credential verification</li>
+        <li><strong>Vote Casting:</strong> Simple and intuitive interface for voting</li>
+        <li><strong>Duplicate Prevention:</strong> System prevents multiple votes from same user</li>
+        <li><strong>Secure Storage:</strong> MySQL database with encrypted vote storage</li>
+        <li><strong>Admin Dashboard:</strong> Candidate management and election monitoring</li>
+        <li><strong>Result Generation:</strong> Instant vote counting and result display</li>
+      </ul>
+    </div>
+
+    <!-- Features -->
+    <div class="section-content">
+      <h2><i class="fas fa-star"></i> Key Features</h2>
+      
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4><i class="fas fa-lock"></i> Secure Auth</h4>
+          <p>Voter authentication and session management</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-check-double"></i> Duplicate Check</h4>
+          <p>Prevents multiple votes from same voter</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-sliders-h"></i> Admin Controls</h4>
+          <p>Candidate and election management</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-chart-pie"></i> Real-time Results</h4>
+          <p>Instant vote counting and display</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-shield"></i> Data Security</h4>
+          <p>Encrypted vote storage in database</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-user-tie"></i> Role-based Access</h4>
+          <p>Different views for voters and admins</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Stack -->
+    <div class="section-content">
+      <h2><i class="fas fa-cogs"></i> Technical Stack</h2>
+      
+      <h3>Backend</h3>
+      <div class="tech-stack">
+        <span class="tech-item">Java</span>
+        <span class="tech-item">JSP</span>
+        <span class="tech-item">Servlet</span>
+        <span class="tech-item">JDBC</span>
+      </div>
+
+      <h3>Database</h3>
+      <div class="tech-stack">
+        <span class="tech-item">MySQL</span>
+        <span class="tech-item">SQL Queries</span>
+        <span class="tech-item">Database Design</span>
+      </div>
+
+      <h3>Frontend</h3>
+      <div class="tech-stack">
+        <span class="tech-item">HTML5</span>
+        <span class="tech-item">CSS3</span>
+        <span class="tech-item">JavaScript</span>
+        <span class="tech-item">Form Validation</span>
+      </div>
+    </div>
+
+    <!-- Architecture -->
+    <div class="section-content">
+      <h2><i class="fas fa-sitemap"></i> System Architecture</h2>
+      
+      <h3>Voter Module</h3>
+      <ul>
+        <li>Login authentication with voter credentials</li>
+        <li>Display list of candidates</li>
+        <li>Vote casting interface</li>
+        <li>Vote submission and confirmation</li>
+        <li>Logout functionality</li>
+      </ul>
+
+      <h3>Admin Module</h3>
+      <ul>
+        <li>Admin login and authentication</li>
+        <li>Add/edit/delete candidates</li>
+        <li>Monitor voting progress</li>
+        <li>View election results</li>
+        <li>Generate reports</li>
+      </ul>
+
+      <h3>Database Schema</h3>
+      <ul>
+        <li><strong>Voters Table:</strong> Voter credentials and authentication</li>
+        <li><strong>Candidates Table:</strong> Candidate information</li>
+        <li><strong>Votes Table:</strong> Vote records with voter-candidate mapping</li>
+        <li><strong>Admin Table:</strong> Administrator credentials</li>
+      </ul>
+    </div>
+
+    <!-- Security Features -->
+    <div class="section-content">
+      <h2><i class="fas fa-shield-alt"></i> Security Features</h2>
+      
+      <ul>
+        <li><strong>Authentication:</strong> Username and password verification</li>
+        <li><strong>Session Management:</strong> Secure session tracking</li>
+        <li><strong>Access Control:</strong> Role-based authorization</li>
+        <li><strong>Duplicate Prevention:</strong> One vote per voter validation</li>
+        <li><strong>Data Encryption:</strong> Sensitive data storage</li>
+        <li><strong>SQL Injection Prevention:</strong> Parameterized queries</li>
+      </ul>
+    </div>
+
+    <!-- Project Links -->
+    <div class="section-content" style="text-align: center;">
+      <h2><i class="fas fa-link"></i> Project Links</h2>
+      
+      <div class="project-buttons">
+        <a href="https://github.com/Er-Sourabh-Patil/OnlineVotingSystem" target="_blank" class="btn btn-primary">
+          <i class="fab fa-github"></i> View Source Code
+        </a>
+        <a href="../index.html#projects" class="btn btn-secondary">
+          <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+      </div>
+    </div>
+
   </div>
-
-  <!-- Problem Statement -->
-  <div class="card">
-    <h3>Problem Statement</h3>
-    <p>
-      Traditional voting systems often involve manual processes that are time-consuming,
-      resource-intensive, and prone to human error. Paper-based voting methods can lead to
-      delayed results, logistical challenges, and concerns related to data integrity and security.
-    </p>
-  </div>
-
-  <!-- Proposed Solution -->
-  <div class="card">
-    <h3>Proposed Solution</h3>
-    <p>
-      A web-based E-Voting Platform was developed using Java technologies to provide a secure
-      and efficient digital voting solution. The system ensures voter authentication, prevents
-      duplicate voting, and securely stores votes in a database for accurate result generation.
-    </p>
-    <p>
-      Administrators are provided with tools to manage candidates and monitor the election process.
-    </p>
-  </div>
-
-  <!-- Methodology -->
-  <div class="card">
-    <h3>Methodology</h3>
-    <ul>
-      <li>Requirement analysis for secure digital voting</li>
-      <li>Design of system architecture and database schema</li>
-      <li>Development of voting and admin modules using Java and JSP</li>
-      <li>Implementation of authentication and authorization mechanisms</li>
-      <li>Secure storage and retrieval of voting data using MySQL</li>
-      <li>Testing for reliability, security, and performance</li>
-    </ul>
-  </div>
-
-  <!-- Tools -->
-  <div class="card">
-    <h3>Tools & Technologies Used</h3>
-    <p>
-      <strong>Programming Language:</strong> Java<br />
-      <strong>Web Technologies:</strong> JSP, HTML, CSS, JavaScript<br />
-      <strong>Database:</strong> MySQL<br />
-      <strong>Backend Connectivity:</strong> JDBC
-    </p>
-  </div>
-
-  <!-- Features -->
-  <div class="card">
-    <h3>Key Features</h3>
-    <ul>
-      <li>Secure voter authentication</li>
-      <li>Prevention of duplicate or invalid votes</li>
-      <li>Role-based access for administrators</li>
-      <li>Digital vote casting and counting</li>
-      <li>Efficient result generation</li>
-      <li>Improved transparency and reliability</li>
-    </ul>
-  </div>
-
-  <!-- Applications -->
-  <div class="card">
-    <h3>Applications</h3>
-    <ul>
-      <li>Academic institution elections</li>
-      <li>Organizational and corporate voting</li>
-      <li>Student council and committee elections</li>
-      <li>Small-scale secure digital voting scenarios</li>
-    </ul>
-  </div>
-
-  <!-- Conclusion -->
-  <div class="card">
-    <h3>Conclusion</h3>
-    <p>
-      The E-Voting Platform demonstrates how modern web technologies can be used to create
-      a secure and transparent digital voting system. By replacing traditional voting methods,
-      the platform improves efficiency, reduces errors, and enhances trust in the election process.
-    </p>
-  </div>
-
-  <a href="../index.html#projects" class="btn">← Back to Projects</a>
-
 </section>
 
-<footer>
-  <p>© 2026 Sourabh Patil. All rights reserved.</p>
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2026 Sourabh Patil. All rights reserved. | Designed & Built with <i class="fas fa-heart"></i></p>
+  </div>
 </footer>
 
+<script src="../scripts.js"></script>
 </body>
 </html>

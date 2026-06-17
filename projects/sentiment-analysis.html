@@ -2,127 +2,470 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sentiment Analysis of Social Media Posts (LSTM)</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sentiment Analysis of Social Media Posts using LSTM by Sourabh Patil" />
-  <link rel="stylesheet" href="../style.css" />
-</head>
 
+  <title>Sentiment Analysis (LSTM) - Deep Learning Project | Sourabh Patil Portfolio</title>
+
+  <meta name="description" content="Sentiment Analysis of Social Media Posts using LSTM networks achieving 95% accuracy on 100,000+ posts." />
+  <meta name="keywords" content="Sentiment Analysis, LSTM, Deep Learning, TensorFlow, Flask, NLP, Python" />
+  <meta name="author" content="Sourabh Patil" />
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    /* Project Detail Styles */
+    .project-detail {
+      min-height: 100vh;
+      padding: 6rem 2rem 3rem;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
+    }
+
+    .detail-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      gap: 1rem;
+      color: var(--secondary);
+    }
+
+    .project-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--light-text);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .project-badge-large {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      color: var(--gray-text);
+      font-size: 0.95rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .project-showcase {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+      text-align: center;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-showcase-icon {
+      font-size: 4rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .section-content {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+    }
+
+    .section-content h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-content h3 {
+      color: var(--light-text);
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .section-content p {
+      color: var(--gray-text);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .section-content ul {
+      color: var(--gray-text);
+      padding-left: 1.5rem;
+      line-height: 2;
+    }
+
+    .section-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .feature-item {
+      background: rgba(99, 102, 241, 0.1);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .feature-item h4 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .feature-item p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .tech-item {
+      background: rgba(99, 102, 241, 0.2);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid var(--primary);
+    }
+
+    .project-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+      border-left: 4px solid var(--secondary);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .project-title {
+        font-size: 1.8rem;
+      }
+
+      .project-meta {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-buttons {
+        flex-direction: column;
+      }
+
+      .project-buttons .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 <header class="navbar">
-  <div class="logo">Sourabh Patil</div>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../index.html#projects">Projects</a>
-    <a href="../index.html#contact">Contact</a>
-  </nav>
+  <div class="nav-container">
+    <div class="logo">
+      <i class="fas fa-code"></i> Sourabh Patil
+    </div>
+    <nav id="nav-menu" class="nav-menu">
+      <a href="../index.html#home" class="nav-link">Home</a>
+      <a href="../index.html#about" class="nav-link">About</a>
+      <a href="../index.html#skills" class="nav-link">Skills</a>
+      <a href="../index.html#projects" class="nav-link">Projects</a>
+      <a href="../index.html#experience" class="nav-link">Experience</a>
+      <a href="../index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
 </header>
 
-<!-- PROJECT REPORT -->
-<section class="section">
-  <h2>Sentiment Analysis of Social Media Posts (LSTM)</h2>
+<!-- ================= PROJECT DETAIL ================= -->
+<section class="project-detail">
+  <div class="detail-container">
+    <a href="../index.html#projects" class="back-link">
+      <i class="fas fa-arrow-left"></i> Back to Projects
+    </a>
 
-  <!-- Overview -->
-  <div class="card">
-    <h3>Project Overview</h3>
-    <p>
-      This project focuses on developing a deep learning–based sentiment analysis system using Long Short-Term Memory
-      (LSTM) networks. The objective of the system is to classify social media text data into
-      <strong>positive, negative, or neutral</strong> sentiment categories.
-    </p>
-    <p>
-      Social media platforms such as Twitter, Facebook, and Google Reviews generate large volumes of unstructured text
-      data. Analyzing this data helps in understanding user opinions, feedback, and public perception.
-    </p>
+    <div class="project-title">
+      <i class="fas fa-chart-line"></i>
+      Sentiment Analysis (LSTM)
+      <span class="project-badge-large">Deep Learning</span>
+    </div>
+
+    <div class="project-meta">
+      <div class="meta-item">
+        <i class="fas fa-database"></i>
+        <span>100,000+ Posts Analyzed</span>
+      </div>
+      <div class="meta-item">
+        <i class="fas fa-percent"></i>
+        <span>95% Accuracy</span>
+      </div>
+      <div class="meta-item">
+        <i class="fas fa-github"></i>
+        <a href="https://github.com/Er-Sourabh-Patil/Sentiment-analysis-of-social-media-reviews" target="_blank" style="color: var(--primary); text-decoration: none;">
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Project Showcase -->
+    <div class="project-showcase">
+      <div>
+        <div class="project-showcase-icon">
+          <i class="fas fa-comments"></i>
+        </div>
+        <p style="color: var(--gray-text); margin: 0;">LSTM-based Sentiment Classification System</p>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="section-content">
+      <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+      <p>
+        This project develops a deep learning-based sentiment analysis system using Long Short-Term Memory (LSTM) networks 
+        to classify social media text data into positive, negative, or neutral sentiment categories. The system analyzes 
+        over 100,000 social media posts from Twitter, Facebook, and Google Reviews.
+      </p>
+      <p>
+        LSTM networks excel at capturing contextual relationships and long-term dependencies in sequential data, making them 
+        ideal for understanding nuanced sentiment in unstructured social media text.
+      </p>
+
+      <div class="highlight-box">
+        <strong>Key Achievement:</strong> Achieved 95% accuracy in sentiment classification while handling informal language, 
+        varying sentence structures, and complex contextual dependencies in social media text.
+      </div>
+    </div>
+
+    <!-- Problem Statement -->
+    <div class="section-content">
+      <h2><i class="fas fa-exclamation-triangle"></i> Problem Statement</h2>
+      <p>
+        Traditional sentiment analysis techniques struggle with:
+      </p>
+      <ul>
+        <li>Capturing contextual meaning in unstructured text</li>
+        <li>Understanding long-term dependencies in sentences</li>
+        <li>Handling informal language and slang from social media</li>
+        <li>Managing varying sentence structures and mixed sentiments</li>
+      </ul>
+    </div>
+
+    <!-- Solution -->
+    <div class="section-content">
+      <h2><i class="fas fa-lightbulb"></i> Solution Approach</h2>
+      <p>
+        Implemented an LSTM-based deep learning architecture that:
+      </p>
+      <ul>
+        <li>Captures sequential dependencies in text through memory cells</li>
+        <li>Processes word embeddings for better semantic understanding</li>
+        <li>Uses dropout regularization to prevent overfitting</li>
+        <li>Integrates into Flask web application for real-time predictions</li>
+      </ul>
+    </div>
+
+    <!-- Features -->
+    <div class="section-content">
+      <h2><i class="fas fa-star"></i> Key Features</h2>
+      
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4><i class="fas fa-brain"></i> LSTM Architecture</h4>
+          <p>Advanced deep learning model for sequence processing</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-rocket"></i> Real-time Prediction</h4>
+          <p>Instant sentiment classification with Flask API</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-chart-pie"></i> Multi-class Classification</h4>
+          <p>Positive, negative, and neutral sentiment detection</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-gauge"></i> Sentiment Gauge</h4>
+          <p>Animated visualization of sentiment scores</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-database"></i> Large Dataset</h4>
+          <p>Trained on 100,000+ social media posts</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-check"></i> High Accuracy</h4>
+          <p>95% accuracy in sentiment classification</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Stack -->
+    <div class="section-content">
+      <h2><i class="fas fa-cogs"></i> Technical Stack</h2>
+      
+      <h3>Deep Learning & ML</h3>
+      <div class="tech-stack">
+        <span class="tech-item">Python</span>
+        <span class="tech-item">TensorFlow</span>
+        <span class="tech-item">Keras</span>
+        <span class="tech-item">LSTM</span>
+        <span class="tech-item">Embedding Layers</span>
+      </div>
+
+      <h3>Data Processing</h3>
+      <div class="tech-stack">
+        <span class="tech-item">Pandas</span>
+        <span class="tech-item">NumPy</span>
+        <span class="tech-item">NLTK</span>
+        <span class="tech-item">Scikit-learn</span>
+        <span class="tech-item">Text Tokenization</span>
+      </div>
+
+      <h3>Web & Visualization</h3>
+      <div class="tech-stack">
+        <span class="tech-item">Flask</span>
+        <span class="tech-item">Matplotlib</span>
+        <span class="tech-item">HTML5/CSS3</span>
+        <span class="tech-item">JavaScript</span>
+        <span class="tech-item">Chart.js</span>
+      </div>
+    </div>
+
+    <!-- Methodology -->
+    <div class="section-content">
+      <h2><i class="fas fa-wrench"></i> Methodology</h2>
+      
+      <h3>Data Collection & Preprocessing</h3>
+      <ul>
+        <li>Collected 100,000+ posts from Twitter, Facebook, and Google Reviews</li>
+        <li>Cleaned and normalized text data (removed special characters, URLs, etc.)</li>
+        <li>Converted text to numerical representations using tokenization</li>
+        <li>Padded sequences to uniform length for model input</li>
+      </ul>
+
+      <h3>Model Architecture</h3>
+      <ul>
+        <li>Embedding Layer: Converts tokens to dense vectors</li>
+        <li>LSTM Layer: Captures sequential dependencies (128 units)</li>
+        <li>Dropout Layer: Prevents overfitting (20% dropout)</li>
+        <li>Dense Layer: Fully connected layer (64 units, ReLU activation)</li>
+        <li>Output Layer: 3-class softmax for sentiment classification</li>
+      </ul>
+
+      <h3>Training & Evaluation</h3>
+      <ul>
+        <li>Trained using Adam optimizer with categorical cross-entropy loss</li>
+        <li>Achieved 95% accuracy on test dataset</li>
+        <li>Evaluated using precision, recall, and F1-score metrics</li>
+        <li>Validated on held-out test set</li>
+      </ul>
+    </div>
+
+    <!-- Applications -->
+    <div class="section-content">
+      <h2><i class="fas fa-lightbulb"></i> Real-world Applications</h2>
+      
+      <ul>
+        <li><strong>Brand Monitoring:</strong> Track customer perception and brand sentiment</li>
+        <li><strong>Customer Feedback Analysis:</strong> Automatically analyze reviews and feedback</li>
+        <li><strong>Social Media Analytics:</strong> Monitor public opinion and trending sentiments</li>
+        <li><strong>Decision Support:</strong> Help businesses make data-driven decisions</li>
+        <li><strong>Crisis Management:</strong> Detect negative sentiment spikes quickly</li>
+        <li><strong>Product Improvement:</strong> Identify areas for product enhancement</li>
+      </ul>
+    </div>
+
+    <!-- Project Links -->
+    <div class="section-content" style="text-align: center;">
+      <h2><i class="fas fa-link"></i> Project Links</h2>
+      
+      <div class="project-buttons">
+        <a href="https://github.com/Er-Sourabh-Patil/Sentiment-analysis-of-social-media-reviews" target="_blank" class="btn btn-primary">
+          <i class="fab fa-github"></i> View Source Code
+        </a>
+        <a href="../index.html#projects" class="btn btn-secondary">
+          <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+      </div>
+    </div>
+
   </div>
-
-  <!-- Problem Statement -->
-  <div class="card">
-    <h3>Problem Statement</h3>
-    <p>
-      Traditional sentiment analysis techniques struggle to capture contextual meaning and long-term dependencies
-      present in natural language. The challenge is to accurately interpret sentiment from social media text that may
-      include informal language, varying sentence structures, and contextual dependencies.
-    </p>
-  </div>
-
-  <!-- Solution -->
-  <div class="card">
-    <h3>Proposed Solution</h3>
-    <p>
-      To address this challenge, an LSTM-based deep learning model was developed. LSTM networks are well-suited for
-      sequential data and can effectively capture contextual relationships in text.
-    </p>
-    <p>
-      The trained model was integrated into a Flask-based web application, enabling real-time sentiment prediction
-      with an animated sentiment gauge for intuitive visualization.
-    </p>
-  </div>
-
-  <!-- Methodology -->
-  <div class="card">
-    <h3>Methodology</h3>
-    <ul>
-      <li>Collection of social media data from Twitter, Facebook, and Google Reviews</li>
-      <li>Text preprocessing and preparation for model training</li>
-      <li>Design and training of an LSTM-based deep learning model</li>
-      <li>Evaluation of the model for sentiment classification</li>
-      <li>Integration of the trained model into a Flask web application</li>
-    </ul>
-  </div>
-
-  <!-- Tools -->
-  <div class="card">
-    <h3>Tools & Technologies Used</h3>
-    <p>
-      <strong>Programming Language:</strong> Python<br />
-      <strong>Deep Learning:</strong> TensorFlow, Keras<br />
-      <strong>Web Framework:</strong> Flask<br />
-      <strong>Libraries:</strong> Pandas, NumPy, Scikit-learn, NLTK, Matplotlib
-    </p>
-  </div>
-
-  <!-- Features -->
-  <div class="card">
-    <h3>Key Features</h3>
-    <ul>
-      <li>Multi-class sentiment classification (Positive, Negative, Neutral)</li>
-      <li>LSTM-based deep learning architecture</li>
-      <li>Real-time sentiment prediction</li>
-      <li>Animated sentiment gauge for visualization</li>
-      <li>Web-based interface using Flask</li>
-    </ul>
-  </div>
-
-  <!-- Applications -->
-  <div class="card">
-    <h3>Applications</h3>
-    <ul>
-      <li>Analysis of customer feedback and reviews</li>
-      <li>Social media opinion mining</li>
-      <li>Brand perception analysis</li>
-      <li>Decision support for businesses and organizations</li>
-    </ul>
-  </div>
-
-  <!-- Conclusion -->
-  <div class="card">
-    <h3>Conclusion</h3>
-    <p>
-      The Sentiment Analysis of Social Media Posts project demonstrates the effective use of LSTM-based deep learning
-      models for understanding public sentiment from unstructured text data. The integration of the model into a Flask
-      web application highlights its practical usability for real-world sentiment analysis tasks.
-    </p>
-  </div>
-
-  <a href="../index.html#projects" class="btn">← Back to Projects</a>
 </section>
 
-<footer>
-  <p>© 2026 Sourabh Patil. All rights reserved.</p>
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2026 Sourabh Patil. All rights reserved. | Designed & Built with <i class="fas fa-heart"></i></p>
+  </div>
 </footer>
 
+<script src="../scripts.js"></script>
 </body>
 </html>

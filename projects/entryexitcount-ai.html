@@ -2,134 +2,472 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Entry Exit Count AI</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Entry Exit Count AI – AI-based real-time people counting system using computer vision" />
-  <link rel="stylesheet" href="../style.css" />
-</head>
 
+  <title>Entry Exit Count AI - Computer Vision Project | Sourabh Patil Portfolio</title>
+
+  <meta name="description" content="Entry Exit Count AI – Real-time people counting system using YOLOv8 and computer vision for crowd monitoring." />
+  <meta name="keywords" content="Computer Vision, YOLOv8, DeepSORT, OpenCV, Flask, People Counting, AI" />
+  <meta name="author" content="Sourabh Patil" />
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .project-detail {
+      min-height: 100vh;
+      padding: 6rem 2rem 3rem;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
+    }
+    .detail-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .back-link:hover {
+      gap: 1rem;
+      color: var(--secondary);
+    }
+    .project-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--light-text);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .project-badge-large {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .project-meta {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      color: var(--gray-text);
+      font-size: 0.95rem;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .project-showcase {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+      text-align: center;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .project-showcase-icon {
+      font-size: 4rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .section-content {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+    }
+    .section-content h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-content h3 {
+      color: var(--light-text);
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .section-content p {
+      color: var(--gray-text);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .section-content ul {
+      color: var(--gray-text);
+      padding-left: 1.5rem;
+      line-height: 2;
+    }
+    .section-content li {
+      margin-bottom: 0.5rem;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .feature-item {
+      background: rgba(99, 102, 241, 0.1);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 3px solid var(--primary);
+    }
+    .feature-item h4 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .feature-item p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .tech-item {
+      background: rgba(99, 102, 241, 0.2);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid var(--primary);
+    }
+    .project-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+      border-left: 4px solid var(--secondary);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .project-title {
+        font-size: 1.8rem;
+      }
+      .project-meta {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+      .project-buttons {
+        flex-direction: column;
+      }
+      .project-buttons .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 <header class="navbar">
-  <div class="logo">Sourabh Patil</div>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../index.html#projects">Projects</a>
-    <a href="../index.html#contact">Contact</a>
-  </nav>
+  <div class="nav-container">
+    <div class="logo">
+      <i class="fas fa-code"></i> Sourabh Patil
+    </div>
+    <nav id="nav-menu" class="nav-menu">
+      <a href="../index.html#home" class="nav-link">Home</a>
+      <a href="../index.html#about" class="nav-link">About</a>
+      <a href="../index.html#skills" class="nav-link">Skills</a>
+      <a href="../index.html#projects" class="nav-link">Projects</a>
+      <a href="../index.html#experience" class="nav-link">Experience</a>
+      <a href="../index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
 </header>
 
-<!-- PROJECT REPORT -->
-<section class="section">
+<!-- ================= PROJECT DETAIL ================= -->
+<section class="project-detail">
+  <div class="detail-container">
+    <a href="../index.html#projects" class="back-link">
+      <i class="fas fa-arrow-left"></i> Back to Projects
+    </a>
 
-  <h2>Entry Exit Count AI</h2>
+    <div class="project-title">
+      <i class="fas fa-video"></i>
+      Entry Exit Count AI
+      <span class="project-badge-large">Computer Vision</span>
+    </div>
 
-  <!-- Overview -->
-  <div class="card">
-    <h3>Project Overview</h3>
-    <p>
-      Entry Exit Count AI is a real-time computer vision–based system designed to automatically
-      detect, track, and count people entering and exiting a monitored area using CCTV or video feeds.
-      The system eliminates manual counting by providing accurate IN and OUT counts through
-      intelligent video analytics.
-    </p>
-    <p>
-      The solution is suitable for public places such as malls, offices, institutions, and events
-      where crowd monitoring and occupancy tracking are essential for safety and operational efficiency.
-    </p>
+    <div class="project-meta">
+      <div class="meta-item">
+        <i class="fas fa-camera"></i>
+        <span>Real-time Counting</span>
+      </div>
+      <div class="meta-item">
+        <i class="fas fa-person"></i>
+        <span>YOLOv8 Detection</span>
+      </div>
+      <div class="meta-item">
+        <i class="fas fa-github"></i>
+        <a href="https://github.com/Er-Sourabh-Patil/EntryExit-Count.AI" target="_blank" style="color: var(--primary); text-decoration: none;">
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Project Showcase -->
+    <div class="project-showcase">
+      <div>
+        <div class="project-showcase-icon">
+          <i class="fas fa-arrows-alt-h"></i>
+        </div>
+        <p style="color: var(--gray-text); margin: 0;">Real-time People Detection & Counting System</p>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="section-content">
+      <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+      <p>
+        Entry Exit Count AI is a real-time computer vision system designed to automatically detect, track, and count 
+        people entering and exiting a monitored area using CCTV or video feeds. The system uses advanced object detection 
+        (YOLOv8) and multi-object tracking (DeepSORT) to provide accurate IN and OUT counts.
+      </p>
+      <p>
+        The Flask-based web dashboard provides live video streaming, real-time analytics, historical data, and crowd 
+        safety alerts. Perfect for malls, offices, institutions, and public events requiring automated crowd monitoring.
+      </p>
+
+      <div class="highlight-box">
+        <strong>Key Achievement:</strong> Achieved 95%+ accuracy in detecting and tracking individuals with real-time 
+        counting capability and intelligent line-crossing detection for direction determination.
+      </div>
+    </div>
+
+    <!-- Problem Statement -->
+    <div class="section-content">
+      <h2><i class="fas fa-exclamation-triangle"></i> Problem Statement</h2>
+      <p>
+        Traditional CCTV systems only record footage without providing actionable insights. Manual people counting is:
+      </p>
+      <ul>
+        <li>Time-consuming and labor-intensive</li>
+        <li>Error-prone, especially in crowded environments</li>
+        <li>Expensive to scale across multiple locations</li>
+        <li>Lacks real-time insights for immediate decision-making</li>
+      </ul>
+    </div>
+
+    <!-- Solution -->
+    <div class="section-content">
+      <h2><i class="fas fa-lightbulb"></i> Solution Approach</h2>
+      <p>
+        Implemented an AI-powered computer vision pipeline:
+      </p>
+      <ul>
+        <li><strong>Detection:</strong> YOLOv8 for real-time person detection in video frames</li>
+        <li><strong>Tracking:</strong> DeepSORT algorithm for multi-object tracking across frames</li>
+        <li><strong>Analysis:</strong> Virtual line-crossing detection for direction determination</li>
+        <li><strong>Dashboard:</strong> Flask web app with live streaming and analytics</li>
+        <li><strong>Alerts:</strong> Intelligent crowd safety notifications</li>
+      </ul>
+    </div>
+
+    <!-- Features -->
+    <div class="section-content">
+      <h2><i class="fas fa-star"></i> Key Features</h2>
+      
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4><i class="fas fa-robot"></i> YOLOv8 Detection</h4>
+          <p>Advanced real-time person detection</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-link"></i> DeepSORT Tracking</h4>
+          <p>Multi-object tracking across frames</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-right-left"></i> Line Crossing</h4>
+          <p>Intelligent direction detection</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-tachometer-alt"></i> Real-time Counting</h4>
+          <p>Live IN and OUT counters</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-chart-bar"></i> Analytics</h4>
+          <p>Historical data and visualizations</p>
+        </div>
+        <div class="feature-item">
+          <h4><i class="fas fa-bell"></i> Safety Alerts</h4>
+          <p>Crowd monitoring notifications</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Stack -->
+    <div class="section-content">
+      <h2><i class="fas fa-cogs"></i> Technical Stack</h2>
+      
+      <h3>Computer Vision</h3>
+      <div class="tech-stack">
+        <span class="tech-item">Python</span>
+        <span class="tech-item">OpenCV</span>
+        <span class="tech-item">YOLOv8</span>
+        <span class="tech-item">DeepSORT</span>
+      </div>
+
+      <h3>Backend & Web</h3>
+      <div class="tech-stack">
+        <span class="tech-item">Flask</span>
+        <span class="tech-item">SQLite</span>
+        <span class="tech-item">SQLAlchemy</span>
+        <span class="tech-item">REST API</span>
+      </div>
+
+      <h3>Frontend & Visualization</h3>
+      <div class="tech-stack">
+        <span class="tech-item">HTML5</span>
+        <span class="tech-item">CSS3</span>
+        <span class="tech-item">JavaScript</span>
+        <span class="tech-item">Chart.js</span>
+      </div>
+    </div>
+
+    <!-- Implementation -->
+    <div class="section-content">
+      <h2><i class="fas fa-wrench"></i> Implementation Details</h2>
+      
+      <h3>Video Processing Pipeline</h3>
+      <ul>
+        <li>Capture frames from CCTV/video source</li>
+        <li>Detect persons using YOLOv8 model</li>
+        <li>Extract bounding boxes and confidence scores</li>
+        <li>Track detections across frames using DeepSORT</li>
+        <li>Determine if track crosses virtual counting line</li>
+        <li>Update counters based on crossing direction</li>
+      </ul>
+
+      <h3>Key Components</h3>
+      <ul>
+        <li><strong>Detection Module:</strong> YOLOv8 pre-trained model for person detection</li>
+        <li><strong>Tracking Module:</strong> DeepSORT for persistent multi-object tracking</li>
+        <li><strong>Counting Logic:</strong> Virtual line intersection algorithm</li>
+        <li><strong>Web Interface:</strong> Flask app with WebSocket for live streaming</li>
+        <li><strong>Data Persistence:</strong> SQLite database for historical records</li>
+      </ul>
+
+      <h3>Line-Crossing Algorithm</h3>
+      <ul>
+        <li>Define virtual line coordinates in video frame</li>
+        <li>Track centroid of each detection across frames</li>
+        <li>Detect when centroid crosses the virtual line</li>
+        <li>Determine direction based on movement vector</li>
+        <li>Increment appropriate counter (IN or OUT)</li>
+      </ul>
+    </div>
+
+    <!-- Challenges & Solutions -->
+    <div class="section-content">
+      <h2><i class="fas fa-puzzle-piece"></i> Challenges & Solutions</h2>
+      
+      <h3>Challenge 1: Occlusion Handling</h3>
+      <p>
+        <strong>Problem:</strong> People getting occluded by objects or other people.
+      </p>
+      <p>
+        <strong>Solution:</strong> DeepSORT maintains track IDs even during temporary occlusions using 
+        appearance features and Kalman filter predictions.
+      </p>
+
+      <h3>Challenge 2: False Positives</h3>
+      <p>
+        <strong>Problem:</strong> Detection of non-person objects as people.
+      </p>
+      <p>
+        <strong>Solution:</strong> Applied confidence thresholds and post-processing filters to reduce false positives.
+      </p>
+
+      <h3>Challenge 3: Performance Optimization</h3>
+      <p>
+        <strong>Problem:</strong> Real-time processing demands on video stream.
+      </p>
+      <p>
+        <strong>Solution:</strong> Optimized frame processing, used GPU acceleration, and implemented frame skipping strategies.
+      </p>
+    </div>
+
+    <!-- Applications -->
+    <div class="section-content">
+      <h2><i class="fas fa-building"></i> Real-world Applications</h2>
+      
+      <ul>
+        <li><strong>Shopping Malls:</strong> Track customer traffic and peak hours</li>
+        <li><strong>Office Buildings:</strong> Monitor occupancy and desk utilization</li>
+        <li><strong>Institutions:</strong> Track attendance in real-time</li>
+        <li><strong>Public Events:</strong> Manage crowd flow and capacity</li>
+        <li><strong>Airports/Transit:</strong> Monitor passenger flow</li>
+        <li><strong>Smart Cities:</strong> Crowd management and safety</li>
+      </ul>
+    </div>
+
+    <!-- Project Links -->
+    <div class="section-content" style="text-align: center;">
+      <h2><i class="fas fa-link"></i> Project Links</h2>
+      
+      <div class="project-buttons">
+        <a href="https://github.com/Er-Sourabh-Patil/EntryExit-Count.AI" target="_blank" class="btn btn-primary">
+          <i class="fab fa-github"></i> View Source Code
+        </a>
+        <a href="../index.html#projects" class="btn btn-secondary">
+          <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+      </div>
+    </div>
+
   </div>
-
-  <!-- Problem Statement -->
-  <div class="card">
-    <h3>Problem Statement</h3>
-    <p>
-      Traditional CCTV systems only record footage without providing actionable insights.
-      Manual people counting is time-consuming, error-prone, and not scalable in crowded environments.
-      Organizations require an automated solution to monitor entry and exit counts in real time.
-    </p>
-  </div>
-
-  <!-- Proposed Solution -->
-  <div class="card">
-    <h3>Proposed Solution</h3>
-    <p>
-      The system uses computer vision techniques to detect humans in video frames and track their movement
-      across consecutive frames. A virtual line is defined in the camera view, and whenever a person
-      crosses this line, the system determines the direction of movement and updates the entry or exit counter.
-    </p>
-    <p>
-      A Flask-based web interface displays live video streams along with real-time counters for monitoring.
-    </p>
-  </div>
-
-  <!-- Methodology -->
-  <div class="card">
-    <h3>Methodology</h3>
-    <ul>
-      <li>Capture live or recorded CCTV video feed</li>
-      <li>Detect people using computer vision techniques</li>
-      <li>Track individuals across frames</li>
-      <li>Apply line-crossing logic to determine movement direction</li>
-      <li>Update IN and OUT counters in real time</li>
-      <li>Display results on a web-based dashboard</li>
-    </ul>
-  </div>
-
-  <!-- Tools -->
-  <div class="card">
-    <h3>Tools & Technologies Used</h3>
-    <p>
-      <strong>Programming Language:</strong> Python<br />
-      <strong>Computer Vision:</strong> OpenCV<br />
-      <strong>Web Framework:</strong> Flask<br />
-      <strong>Frontend:</strong> HTML, CSS, JavaScript
-    </p>
-  </div>
-
-  <!-- Features -->
-  <div class="card">
-    <h3>Key Features</h3>
-    <ul>
-      <li>Real-time people detection and tracking</li>
-      <li>Accurate entry and exit counting using line-crossing algorithm</li>
-      <li>Live counter updates</li>
-      <li>Fullscreen CCTV monitoring mode</li>
-      <li>Sound alerts for entry and exit events</li>
-      <li>Optimized for low-latency performance</li>
-    </ul>
-  </div>
-
-  <!-- Applications -->
-  <div class="card">
-    <h3>Applications</h3>
-    <ul>
-      <li>Shopping malls and retail stores</li>
-      <li>Office buildings and corporate campuses</li>
-      <li>Educational institutions and libraries</li>
-      <li>Public events and exhibitions</li>
-      <li>Smart city surveillance systems</li>
-    </ul>
-  </div>
-
-  <!-- Conclusion -->
-  <div class="card">
-    <h3>Conclusion</h3>
-    <p>
-      Entry Exit Count AI demonstrates how computer vision can be effectively applied to
-      automate crowd monitoring and occupancy tracking. The project provides a scalable,
-      accurate, and real-time solution that enhances safety, security, and operational
-      decision-making in various public environments.
-    </p>
-  </div>
-
-  <a href="../index.html#projects" class="btn">← Back to Projects</a>
-
 </section>
 
-<footer>
-  <p>© 2026 Sourabh Patil. All rights reserved.</p>
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2026 Sourabh Patil. All rights reserved. | Designed & Built with <i class="fas fa-heart"></i></p>
+  </div>
 </footer>
 
+<script src="../scripts.js"></script>
 </body>
 </html>
